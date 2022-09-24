@@ -1,0 +1,80 @@
+# Get all the posts
+query GetAllPosts {
+  listPosts {
+    success
+    errors
+    posts {
+      id
+      title
+      description
+      created_at
+    }
+  }
+}
+
+
+# Get single post by id
+query GetPost {
+  getPost(id: 3) {
+    post {
+      id
+      title
+      description
+    }
+    success
+    errors
+  }
+}
+
+
+# Create a post
+mutation CreatePost {
+  createPost(
+    title: "Powerful local GraphQL development"
+    description: "Apollo Studio Explorer is the GraphQL IDE of the future"
+  ) {
+    post {
+      id
+      title
+      description
+      created_at
+    }
+    success
+    errors
+  }
+}
+
+
+# Update a post
+mutation UpdatePost {
+  updatePost(
+    id: "2"
+    title: "Google News"
+    description: "Comprehensive up-to-date news coverage, aggregated from sources all over the world "
+  ) {
+    post {
+      id
+      title
+      description
+    }
+    success
+    errors
+  }
+}
+
+# Delete a post by ID
+mutation DeletePost{
+  deletePost(id: "10") {
+    success
+    errors
+    post{
+      id
+      title
+      description
+      created_at
+    }
+  }
+}
+
+
+
