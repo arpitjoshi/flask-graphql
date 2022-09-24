@@ -1,34 +1,36 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
 schema {
     query: Query
     mutation: Mutation
 }
 
+type Mutation {
+    createPost(created_at: String, description: String!, title: String!): PostResult!
+    deletePost(id: ID): PostResult!
+    updatePost(description: String, id: ID!, title: String): PostResult!
+}
+
 type Post {
+    created_at: String!
+    description: String!
     id: ID!
     title: String!
-    description: String!
-    created_at: String!
 }
 
 type PostResult {
-    success: Boolean!
     errors: [String]
     post: Post
+    success: Boolean!
 }
 
 type PostsResult {
-    success: Boolean!
     errors: [String]
     posts: [Post]
+    success: Boolean!
 }
 
 type Query {
-    listPosts: PostsResult!
     getPost(id: ID!): PostResult!
-}
-
-type Mutation {
-    createPost(title: String!, description: String!, created_at: String): PostResult!
-    updatePost(id: ID!, title: String, description: String): PostResult!
-    deletePost(id: ID): PostResult!
+    listPosts: PostsResult!
 }

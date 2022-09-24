@@ -19,9 +19,9 @@ def list_posts_resolver(obj, info):
 
 
 @convert_kwargs_to_snake_case
-def get_post_resolver(obj, info, id):
+def get_post_resolver(obj, info, post_id):
     try:
-        post = Post.query.get(id)
+        post = Post.query.get(post_id)
         payload = {
             "success": True,
             "post": post.to_dict()
@@ -30,7 +30,7 @@ def get_post_resolver(obj, info, id):
     except AttributeError:  # todo not found
         payload = {
             "success": False,
-            "errors": [f"Todo item matching id {id} not found"]
+            "errors": [f"Post with id {post_id} not found"]
         }
 
     return payload
