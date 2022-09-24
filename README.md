@@ -6,6 +6,7 @@ Sample project for Flask & GraphQL
 2. cd project
 3. Create Virtual Environment
 `python3 -m venv venv `
+4. Activate Virtual Environment `source venv/bin/activate`
 4. Install requirements
 `pip install -r requirements.txt`
 5. Create Database
